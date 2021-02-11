@@ -173,7 +173,7 @@ You can use JSON file references within stream configurations to point to other 
 // streams/contacts.json
 {
     "name": "Contacts",
-    "fields": "@streams/fields/contacts.json"
+    "fields": "@laravel-streams/fields/contacts.json"
 }
 ```
 

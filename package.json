@@ -1,6 +1,10 @@
 {
-    "name": "@streams/core",
+    "name": "@laravel-streams/core",
+    "private": true,
     "version": "1.0.0",
+    "types": "lib/index.ts",
+    "typings": "lib/index.ts",
+    "main": "lib/index.ts",
     "scripts": {
         "dev": "npm run development",
         "development": "mix",

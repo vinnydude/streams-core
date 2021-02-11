@@ -1,8 +1,8 @@
-import { ServiceProvider } from './foundation/ServiceProvider';
+import { ServiceProvider } from './foundation';
 
 export class StreamsServiceProvider extends ServiceProvider {
 
-    register() {
+    public register() {
         // Go >>
     }
 }
