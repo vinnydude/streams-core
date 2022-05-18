@@ -59,21 +59,13 @@ class StreamsServiceProvider extends ServiceProvider
 
     public function register(): void
     {
+        $this->app->singleton('streams.parser_data', fn() => new Parser(Parser::data()));
+        $this->app->singleton('faker', fn() => \Faker\Factory::create());
         $this->registerConfig();
-
         $this->registerComposerJson();
         $this->registerComposerLock();
         $this->registerVendorPath();
         $this->registerFieldTypes();
-
-        foreach ($this->bindings as $abstract => $concrete) {
-            $this->app->bind($abstract, $concrete);
-        }
-
-        foreach ($this->singletons as $abstract => $concrete) {
-            $this->app->singleton($abstract, $concrete);
-        }
-
         $this->registerAliases();
         $this->registerMacros();
         $this->extendView();
@@ -86,7 +78,6 @@ class StreamsServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->app->singleton('streams.parser_data', fn() => Parser::data());
 
         $this->registerStreams();
 
@@ -100,7 +91,7 @@ class StreamsServiceProvider extends ServiceProvider
         $this->addImageNamespaces();
         $this->loadTranslations();
 
-        $this->app->instance('faker', fn() => \Faker\Factory::create());
+
 
         // if ($this->app->runningInConsole()) {
         //     $this->commands([

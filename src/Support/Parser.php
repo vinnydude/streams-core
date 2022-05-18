@@ -2,13 +2,24 @@
 
 namespace Streams\Core\Support;
 
+use Illuminate\Config\Repository;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
-class Parser
+/**
+ * The parser contains values that are used when calling {@see \Illuminate\Support\Str::parse()}.
+ * Streams parses variables within strings to allow dynamic configuration.
+ *
+ * @link https://streams.dev/docs/core/parser
+ * @see \Streams\Core\Support\Macros\StrParse
+ * @example
+ * ```php
+ * $parsedString = Str::parse('/url/to/{request.query.per_page}')
+ *
+ */
+class Parser extends Repository
 {
-
     static public function data()
     {
         $parsed = parse_url(Request::url());
@@ -36,7 +47,7 @@ class Parser
             ],
             'user' => ($user = Auth::user()) ? (array) $user : null,
         ];
-        
+
         if ($route = Request::route()) {
 
             $data['route'] = [

@@ -23,7 +23,7 @@ class StrParse
             }
 
             return $parser->render($target, array_replace_recursive(
-                App::make('streams.parser_data'),
+                (array) App::make('streams.parser_data'),
                 Arr::make($data),
                 [
                     'app' => [
