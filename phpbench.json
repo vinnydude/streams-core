@@ -1,0 +1,21 @@
+{
+    "$schema":"./vendor/phpbench/phpbench/phpbench.schema.json",
+    "runner.bootstrap": "vendor/autoload.php",
+    "runner.path": "tests/Benchmark",
+    "report.outputs": {
+        "console": {
+            "renderer": "console"
+        },
+        "html": {
+            "renderer": "html",
+            "path": ".phpbench/index.html"
+        }
+    },
+    "report.generators": {
+        "my-report": {
+            "generator": "expression",
+            "break": ["benchmark"],
+            "cols": ["benchmark","subject", "set", "revs", "its", "mem_peak", "mode", "rstdev"]
+        }
+    }
+}

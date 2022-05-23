@@ -26,6 +26,8 @@
         "streams/testing": "^1.0",
         "mockery/mockery": "^1.4",
         "phpunit/phpunit": "^9.5",
+        "phpbench/phpbench": "^1.2",
+        "phpspec/phpspec": "^7.0",
         "friendsofphp/php-cs-fixer": "^2.19",
         "helmich/phpunit-json-assert": "^3.1",
         "barryvdh/reflection-docblock": "^2.0.1"
@@ -37,8 +39,19 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Streams\\Core\\Tests\\": "tests/"
+            "Streams\\Tests\\Core\\": "tests/"
         }
+    },
+    "scripts": {
+        "benchmark": [
+            "./bin/phpbench run --report=my-report"
+        ],
+        "tests": [
+            "./bin/phpunit"
+        ],
+        "spec": [
+            "./bin/phpspec run -v"
+        ]
     },
     "config": {
         "bin-dir": "bin"
